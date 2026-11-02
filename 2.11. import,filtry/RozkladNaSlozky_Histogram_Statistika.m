@@ -1,3 +1,4 @@
+clear
 
 addpath(fullfile('..','Data/CT'))
 im = imread("Projection4.png");     % nacte obrazek do trojrozmerne matice RGB
