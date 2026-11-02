@@ -1,7 +1,0 @@
-
-
-im = imread("Projection0.png");
-red(:,:,1 ...) = im(:,:,1 ...);
-red = zeros(:,:,2);
-red = zeros(:,:,3);
-imshow(red)
