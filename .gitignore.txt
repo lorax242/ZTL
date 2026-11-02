@@ -1,0 +1,21 @@
+@'
+# MATLAB dočasné a záložní soubory
+**/*.asv
+**/*.bak
+**/*.log
+
+# Simulink cache a mezivýpočty
+**/slprj/
+**/Simulink/
+**/*.mex*
+
+# Velká binární data nebo výstupy (volitelně)
+**/*.mat
+**/figures/*.png
+**/figures/*.pdf
+
+# Systémový balast
+.DS_Store
+Thumbs.db
+desktop.ini
+'@ | Out-File -FilePath .gitignore -Encoding utf8
