@@ -1,16 +1,40 @@
 clear
 
 im = imread("Projection4.png");
-sum = imnoise(im,"salt & pepper");
-%figure
-%imshow(im)
-%%imshow(sum)
-n =5:5:50;
+hodnota_sum = 0.34
+sum = imnoise(im,"salt & pepper",0.34);
 
-c =10;
-for s = 1:c
 
-filt(:,:,s) = medfilt2(sum,[s,s]);
+
+
+%% 10 filtru s ruznymi okny
+n = 5:5:50;
+
+for s = 1:size(n,2)
+filt(:,:,s) = medfilt2(sum,[n(s),n(s)]);
 end
-imshow(filt)
 
+
+% Parametr 'flow' automaticky uspořádá dlaždice do mřížky podle velikosti okna.
+% Pokud chceš pevnou mřížku 2x5, použij: tiledlayout(2, 5);
+figure
+tiledlayout('flow'); 
+
+nexttile;
+imshow(im)
+title('Originalni')
+
+nexttile;
+imshow(sum)
+
+
+
+for i = 1:10
+    nexttile;                                           % Přechod na další volnou pozici
+                                   
+    
+                                                        
+    imshow(filt(:,:,i));                                      % Nebo imshow(), případně plot()
+    
+    title(sprintf('okno filtru %d \\times %d', 5*i, 5*i));  % Dosadí aktuální výsledek 5*i za první i za druhé %d 
+end
